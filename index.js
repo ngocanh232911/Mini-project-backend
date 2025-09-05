@@ -7,6 +7,10 @@ import authRoute from './routes/auth.js';
 import ImageRoute from './routes/Image.js';
 
 dotenv.config();
+app.get("/", (req, res) => {
+  res.send("Server is running!");
+});
+
 
 mongoose.connect(process.env.MONGO_URI)
 
