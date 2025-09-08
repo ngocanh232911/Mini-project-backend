@@ -7,9 +7,7 @@ import authRoute from './routes/auth.js';
 import ImageRoute from './routes/Image.js';
 
 dotenv.config();
-app.get("/", (req, res) => {
-  res.send("Server is running!");
-});
+
 
 
 mongoose.connect(process.env.MONGO_URI)
@@ -20,6 +18,9 @@ mongoose.connect(process.env.MONGO_URI)
   const app = express();
 app.use(cors());
 app.use(express.json());
+app.get("/", (req, res) => {
+  res.send("Server is running!");
+});
 
 app.use('/api/generate', generateRoute);
 app.use('/api/auth', authRoute);
